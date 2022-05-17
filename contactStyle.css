@@ -1,0 +1,78 @@
+:root {
+  /* font size */
+  --font-title : 40px;
+  --font-content : 20px;
+
+  /* color */
+  --color-background :#eeeeee;
+}
+
+html {
+  background-color: var(--color-background);
+  font-family: 'Noto Sans JP', sans-serif;
+}
+
+
+.contactScreen {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+}
+
+.title {
+  font-size: var(--font-title);
+}
+
+.content {
+  margin-top: 20px;
+}
+
+input[type="text"],
+textarea,
+.inputText::placeholder,
+.transmissonBtn
+{
+    font-size: var(--font-content);
+}
+
+.inputText ,textarea{
+  width: 500px;
+  height: 50px;
+  border: solid 2px;
+  border-radius: 10px;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+textarea {
+  resize: none;
+  font-family: 'Noto Sans JP', sans-serif;
+}
+
+.inquiry {
+  height: 400px;
+}
+
+.transmissonBtn:hover{
+  border: solid 4px;
+  transition: 0.1s;
+  cursor: pointer;
+}
+
+.clickInquirys {
+  display: flex;
+  justify-content: center;
+}
+
+.peruseInquirys {
+  border: none;
+  background-color: var(--color-background);
+  cursor: pointer;
+}
+
+.peruseInquirys:hover {
+  font-size: 14px;
+  transition: 0.2s;
+}

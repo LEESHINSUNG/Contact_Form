@@ -1,0 +1,89 @@
+:root {
+  /* font size */
+  --font-title : 50px;
+  --font-content : 30px;
+  --font-normal : 20px;
+
+  /* color */
+  --color-background : #eeeeee;
+}
+
+html {
+  background-color: var(--color-background);
+  font-family: 'Noto Sans JP', sans-serif;
+}
+
+.inquiryScreen {
+  padding: 30px;
+  width: 80%;
+  height: 100vh;
+  margin: auto;
+}
+
+.navi {
+  display: flex;
+  justify-content: space-between;
+  margin: 40px;
+}
+
+.naviDiv {
+  display: flex;
+  justify-content: center;
+}
+
+.backScreen{
+  align-self: flex-end;
+}
+
+.clickContact {
+  border: none;
+  background-color: var(--color-background);
+  font-size: var(--font-normal);
+}
+
+.clickContact:hover {
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.title {
+  font-size: var(--font-title);
+}
+
+.blank {
+  width: 80px;
+}
+
+.inquiryBoxs {
+  margin-top: 100px;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  height: 100vh;
+}
+
+.inquiryBox {
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+  margin: 15px;
+  background: var(--color-background);
+  box-sizing: border-box;
+  box-shadow: 1px 1px 40px rgb(187, 187, 187);
+  padding: 15px;
+  border-radius: 50px;
+}
+
+.name {
+  text-align: center;
+  font-size: 30px;
+  margin: 10px;
+}
+
+.phoneNum, .mail {
+  text-align: end;
+}
+
+.inquiry {
+  margin-top: 30px;
+}

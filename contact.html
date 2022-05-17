@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact Us</title>
+    <script src="main.js"></script>
+    <link rel="stylesheet" href="contactStyle.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="contactScreen">
+      <div class="titleBox box">
+        <h class="title">お問い合わせ</h>
+      </div>
+      <div class="contentsBox box">
+        <div class="content">
+          <input
+            type="text"
+            class="name inputText"
+            placeholder="お名前"
+            onfocus="this.placeholder=``"
+            onblur="this.placeholder=`お名前`"
+            maxlength="255"
+          />
+        </div>
+        <div class="content">
+          <input
+            type="text"
+            class="phoneNum inputText"
+            placeholder="電話番号"
+            onfocus="this.placeholder=``"
+            onblur="this.placeholder=`電話番号`"
+          />
+        </div>
+        <div class="content">
+          <input
+            type="text"
+            class="mail inputText"
+            placeholder="メールアドレス"
+            onfocus="this.placeholder=``"
+            onblur="this.placeholder=`メールアドレス`"
+          />
+        </div>
+        <div class="content">
+          <textarea
+            class="inquiry inputText"
+            cols="num"
+            rows="num"
+            placeholder="お問い合わせ内容"
+            onfocus="this.placeholder=``"
+            onblur="this.placeholder=`お問い合わせ内容`"
+            maxlength="500"
+          ></textarea>
+        </div>
+        <div class="content">
+          <button class="transmissonBtn inputText">送信</button>
+        </div>
+        <div class="content clickInquirys">
+          <button class="peruseInquirys" onclick="moveToInquiryScreen()">お問い合わせ一覧へ</button>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
