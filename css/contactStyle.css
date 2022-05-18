@@ -71,8 +71,3 @@ textarea {
   background-color: var(--color-background);
   cursor: pointer;
 }
-
-.peruseInquirys:hover {
-  font-size: 14px;
-  transition: 0.2s;
-}
