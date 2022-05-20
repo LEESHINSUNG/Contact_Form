@@ -11,6 +11,4 @@ const routers = require("./js/routers.js")
 app.use(express.static(__dirname)) // serve CSS, JS, image files
 app.use("/", routers); //router
 
-
-
 module.exports = app;

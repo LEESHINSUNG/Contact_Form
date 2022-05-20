@@ -32,7 +32,7 @@ html {
 input[type="text"],
 textarea,
 .inputText::placeholder,
-.transmissonBtn
+.transmissionBtn
 {
     font-size: var(--font-content);
 }
@@ -55,7 +55,7 @@ textarea {
   height: 400px;
 }
 
-.transmissonBtn:hover{
+.transmissionBtn:hover{
   border: solid 4px;
   transition: 0.1s;
   cursor: pointer;
