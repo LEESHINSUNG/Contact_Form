@@ -1,26 +1,21 @@
 "use strict";
 
-const personName = document.querySelector(".name"),
-  phoneNum = document.querySelector(".phoneNum"),
-  mail = document.querySelector(".mail"),
-  inquiry = document.querySelector(".inquiry"),
+const personName = document.querySelector(".userName"),
+  phoneNum = document.querySelector(".userPhoneNum"),
+  mail = document.querySelector(".userMail"),
+  inquiry = document.querySelector(".userInquiry"),
   transmissionBtn = document.querySelector(".transmissionBtn");
-
-console.log(personName);
-console.log("hello");
 
 transmissionBtn.addEventListener('click',transmission)
 
 function transmission() {
-  const req = {
-    personName : personName.value,
-    phoneNum : phoneNum.value,
-    mail : mail.value,
-    inquiry : inquiry.value, 
+  const personalInfo = {
+    userName : personName.value,
+    userPhoneNum : phoneNum.value,
+    userMail : mail.value,
+    userInquiry : inquiry.value, 
   }
   
-  fetch("/inquiry",{
-    method: "POST",
-    body : JSON.stringify(req),
-  });
+  console.log(personalInfo);
 }
+

@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Contact Us</title>
+    <!-- <script src="../js/screenContact.js" defer></script> -->
     <link rel="stylesheet" href="../css/contactStyle.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -19,48 +20,59 @@
         <h class="title">お問い合わせ</h>
       </div>
       <div class="contentsBox box">
-        <div class="content">
-          <input
-            type="text"
-            class="name inputText"
-            placeholder="お名前"
-            onfocus="this.placeholder=``"
-            onblur="this.placeholder=`お名前`"
-            maxlength="255"
-          />
-        </div>
-        <div class="content">
-          <input
-            type="text"
-            class="phoneNum inputText"
-            placeholder="電話番号"
-            onfocus="this.placeholder=``"
-            onblur="this.placeholder=`電話番号`"
-          />
-        </div>
-        <div class="content">
-          <input
-            type="text"
-            class="mail inputText"
-            placeholder="メールアドレス"
-            onfocus="this.placeholder=``"
-            onblur="this.placeholder=`メールアドレス`"
-          />
-        </div>
-        <div class="content">
-          <textarea
-            class="inquiry inputText"
-            cols="num"
-            rows="num"
-            placeholder="お問い合わせ内容"
-            onfocus="this.placeholder=``"
-            onblur="this.placeholder=`お問い合わせ内容`"
-            maxlength="500"
-          ></textarea>
-        </div>
-        <div class="content">
-          <button class="transmissonBtn inputText">送信</button>
-        </div>
+        <form action="/" method="post">
+          <div class="content">
+            <input
+              type="text"
+              class="name inputText"
+              name="name"
+              placeholder="⋆ お名前"
+              onfocus="this.placeholder=``"
+              onblur="this.placeholder=`⋆ お名前`"
+              maxlength="255"
+            />
+          </div>
+          <div class="content">
+            <input
+              type="text"
+              class="phoneNum inputText"
+              name="phoneNum"
+              placeholder="   電話番号"
+              onfocus="this.placeholder=``"
+              onblur="this.placeholder=`   電話番号`"
+            />
+          </div>
+          <div class="content">
+            <input
+              type="text"
+              class="mail inputText"
+              name="email"
+              placeholder="⋆ メールアドレス"
+              onfocus="this.placeholder=``"
+              onblur="this.placeholder=`⋆ メールアドレス`"
+            />
+          </div>
+          <div class="content">
+            <textarea
+              class="inquiry inputText"
+              name="inquiry"
+              cols="num"
+              rows="num"
+              placeholder="⋆ お問い合わせ内容"
+              onfocus="this.placeholder=``"
+              onblur="this.placeholder=`⋆ お問い合わせ内容`"
+              maxlength="500"
+            ></textarea>
+          </div>
+          <div class="content">
+            <input
+              type="submit"
+              value="送信"
+              class="transmissionBtn inputText"
+            />
+          </div>
+        </form>
+
         <div class="content clickInquirys">
           <a href="/inquiry" class="peruseInquirys">お問い合わせ一覧へ</a>
         </div>
