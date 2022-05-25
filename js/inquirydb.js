@@ -1,5 +1,4 @@
 const { Pool } = require("pg");
-const text = "SELECT * FROM user_info";
 
 const pool = new Pool({
   host: "localhost",
@@ -14,12 +13,6 @@ pool.connect((err) => {
   console.log("Connected!");
 });
 
-
-pool.query(text, (err, res) => {
-  if (err) console.log("err", err);
-  console.log(res.rows[0]);
-  // client.end;
-});
 
 module.exports = pool;
 
