@@ -74,16 +74,16 @@ html {
   border-radius: 50px;
 }
 
-.name {
+.userName {
   text-align: center;
   font-size: 30px;
   margin: 10px;
 }
 
-.phoneNum, .mail {
+.userPhoneNum, .userMail {
   text-align: end;
 }
 
-.inquiry {
+.userInquiry {
   margin-top: 30px;
 }

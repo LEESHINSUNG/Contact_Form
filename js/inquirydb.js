@@ -1,23 +1,27 @@
-const { Client } = require("pg");
+const { Pool } = require("pg");
+const text = "SELECT * FROM user_info";
 
-const client = new Client({
+const pool = new Pool({
   host: "localhost",
   user: "postgres",
   port: 5432,
   password: "4606",
-  database: "postgres",
+  database: "nodedb",
 });
 
-client.connect();
-
-client.query(`Select * from user_info`, (req, res, error) => {
-  if (!error) {
-    console.log(req);
-  } else {
-    console.log("No");
-  }
-  client.end;
+pool.connect((err) => {
+  if (err) throw err;
+  console.log("Connected!");
 });
+
+
+pool.query(text, (err, res) => {
+  if (err) console.log("err", err);
+  console.log(res.rows[0]);
+  // client.end;
+});
+
+module.exports = pool;
 
 // < npm pg >
 // https://www.npmjs.com/package/postgres

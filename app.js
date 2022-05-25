@@ -1,6 +1,8 @@
 /* Modules */
+const { log } = require("console");
 const express = require("express"); // 익스프레스 모듈 불러오기
 const path = require("path"); // router에서 사용하고 있음
+const pool = require("./js/inquirydb");
 
 const app = express();
 
@@ -17,7 +19,31 @@ app.get("/inquiry", (req, res) => {
 });
 
 app.post("/", (req, res, next) => {
-  console.log(req.body);
+  const userName = req.body.name;
+  const userPhoneNum = req.body.phoneNum;
+  const userMail = req.body.email;
+  const userInquiry = req.body.inquiry;
+  const query =  {
+    text: 'INSERT INTO user_info(user_name,user_Phone_num,user_mail,user_inquiry) VALUES ($1,$2,$3,$4)',
+    values: [userName, userPhoneNum,userMail,userInquiry],
+  }
+
+  pool.query(query,(err, res) => {
+    if (err) {
+      console.log("Error",err.stack)
+    } else {
+      console.log("okay", res.rows[0]) // undefinend?? rows[0]일 경우 undefined
+    }
+  })
+  console.log("body",req.body);
 });
+
+/* pool.query("SELECT * FROM user_info",(err,res) => {
+  if(err) {
+    console.log("Error");
+  } else {
+    console.log(res.rows);
+  }
+}) */
 
 module.exports = app;
