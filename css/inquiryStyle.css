@@ -1,11 +1,16 @@
+*{
+  box-sizing: border-box;
+}
+
 :root {
   /* font size */
-  --font-title : 50px;
-  --font-content : 30px;
-  --font-normal : 20px;
+  --font-title : 26px;
+  --font-content : 15px;
+  --font-normal : 15px;
 
   /* color */
-  --color-background : #eeeeee;
+  --color-background :#ffffff;
+  --color-font : #656565;
 }
 
 html {
@@ -14,21 +19,16 @@ html {
 }
 
 .inquiryScreen {
-  padding: 30px;
+  padding: 35px 0px 0px 0px;
   width: 80%;
   height: 100vh;
   margin: auto;
+  color: var(--color-font);
 }
 
 .navi {
-  display: flex;
-  justify-content: space-between;
-  margin: 40px;
-}
-
-.naviDiv {
-  display: flex;
-  justify-content: center;
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
 }
 
 .backScreen{
@@ -38,12 +38,10 @@ html {
 .clickContact {
   border: none;
   background-color: var(--color-background);
-  font-size: var(--font-normal);
-}
-
-.clickContact:hover {
+  text-decoration-color : var(--color-background);
+  font-size: 13px;
+  color: var(--color-font);
   cursor: pointer;
-  transition: 0.3s;
 }
 
 .title {
@@ -55,35 +53,34 @@ html {
 }
 
 .inquiryBoxs {
-  margin-top: 100px;
-  display: flex;
-  justify-content: space-around;
-  flex-wrap: wrap;
-  height: 100vh;
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  grid-template-rows: repeat(1fr);
+  gap: 30px;
+  margin-top: 30px;
+  justify-content: space-between;
+
 }
 
 .inquiryBox {
-  display: flex;
-  flex-direction: column;
-  width: 300px;
-  margin: 15px;
   background: var(--color-background);
   box-sizing: border-box;
-  box-shadow: 1px 1px 40px rgb(187, 187, 187);
-  padding: 15px;
-  border-radius: 50px;
+  box-shadow: 0px 0px 10px rgb(209, 209, 209);
+  padding: 22px;
+  border-radius: 35px;
 }
 
 .userName {
   text-align: center;
-  font-size: 30px;
-  margin: 10px;
+  font-size: 25px;
 }
 
 .userPhoneNum, .userMail {
   text-align: end;
+  font-size: 12px;
 }
 
 .userInquiry {
   margin-top: 30px;
+  font-size: 100%;
 }

@@ -1,51 +1,45 @@
 :root {
   /* font size */
-  --font-title : 40px;
+  --font-title : 26px;
   --font-content : 20px;
 
   /* color */
-  --color-background :#78d060;
+  --color-background :#ffffff;
+  --color-border : #7e7e7e;
 }
 
 html {
-  background-color: var(--color-background);
   font-family: 'Noto Sans JP', sans-serif;
 }
-
 
 .contactScreen {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 10px;
+  margin: 50px;
 }
 
 .title {
   font-size: var(--font-title);
+  color: var(--color-border);
 }
 
 .content {
-  margin-top: 20px;
+  margin-top: 28px;
 }
 
-.inputText {
-  background: rgb(231, 231, 231);
-}
-
-input[type="text"],
-textarea,
-.inputText::placeholder,
-.transmissionBtn
-{
-    font-size: var(--font-content);
+.nontentForm{
+  font-size: var(--font-content);
+  color: var(--color-border);
 }
 
 .inputText ,textarea{
-  width: 500px;
+  width: 450px;
   height: 50px;
   border: 0px;
-  border-radius: 5px;
+  border: solid 1px var(--color-border);
+  border-radius: 10px;
   padding: 10px;
   box-sizing: border-box;
 }
@@ -56,11 +50,11 @@ textarea {
 }
 
 .inquiry {
-  height: 400px;
+  height: 220px;
 }
 
-.transmissionBtn {
-  background: #64b94c;
+.transmissionBtn{
+  background: var(--color-background);
 }
 
 .transmissionBtn:hover{
@@ -75,15 +69,8 @@ textarea {
 
 .peruseInquirys {
   border: none;
-  background-color: var(--color-background);
   cursor: pointer;
-}
-
-.contentForm {
-  background : rgb(255, 255, 255);
-  padding: 20px;
-  margin-top: 10px;
-  border-radius: 20px;
-  box-shadow: 2px 2px 10px rgb(59, 58, 58);
-
+  text-decoration-color : var(--color-background);
+  color : var(--color-border);
+  font-size: 12px;
 }

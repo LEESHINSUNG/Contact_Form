@@ -17,64 +17,71 @@
   <body>
     <div class="contactScreen">
       <div class="titleBox box">
-        <h class="title">お問い合わせ</h>
+        <h class="title">お問い合わせフォム</h>
       </div>
       <div class="contentsBox box">
-        <form action="/" method="post" class="contentForm">
+        <form action="/" method="post" class="contentForm" id="submitBtn">
           <div class="content">
             <input
               type="text"
               class="name inputText"
               name="name"
-              placeholder="⋆ お名前"
+              placeholder="お名前"
               onfocus="this.placeholder=``"
-              onblur="this.placeholder=`⋆ お名前`"
+              onblur="this.placeholder=`お名前`"
               maxlength="255"
+              required
             />
           </div>
           <div class="content">
             <input
-              type="text"
+              type="tel"
+              pattern="[0-9]{3}-[0-9]{4}-[0-9]{4}"
               class="phoneNum inputText"
               name="phoneNum"
-              placeholder="   電話番号"
+              placeholder="電話番号"
               onfocus="this.placeholder=``"
-              onblur="this.placeholder=`   電話番号`"
+              onblur="this.placeholder=`電話番号`"
             />
           </div>
           <div class="content">
             <input
-              type="text"
+              type="email"
               class="mail inputText"
               name="email"
-              placeholder="⋆ メールアドレス"
+              placeholder="メールアドレス"
               onfocus="this.placeholder=``"
-              onblur="this.placeholder=`⋆ メールアドレス`"
+              onblur="this.placeholder=`メールアドレス`"
+              required
             />
           </div>
           <div class="content">
             <textarea
               class="inquiry inputText"
               name="inquiry"
-              cols="num"
-              rows="num"
-              placeholder="⋆ お問い合わせ内容"
+              cols="40"
+              rows="40"
+              placeholder="お問い合わせ内容"
               onfocus="this.placeholder=``"
-              onblur="this.placeholder=`⋆ お問い合わせ内容`"
+              onblur="this.placeholder=`お問い合わせ内容`"
               maxlength="500"
+              required
             ></textarea>
           </div>
           <div class="content">
-            <input
-              type="submit"
-              value="送信"
-              class="transmissionBtn inputText"
-            />
+            <a href="/contact">
+              <input
+                type="submit"
+                value="送信"
+                class="transmissionBtn inputText"
+              />
+            </a>
           </div>
         </form>
-
         <div class="content clickInquirys">
-          <a href="/inquiry" class="peruseInquirys">お問い合わせ一覧へ</a>
+          <a href="http://localhost:8000/contact" class="peruseInquirys"
+            >お問い合わせ一覧へ⇨</a
+          >
         </div>
       </div>
     </div>

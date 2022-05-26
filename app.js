@@ -1,8 +1,9 @@
 /* Modules */
-const { log } = require("console");
+// const { log } = require("console");
 const express = require("express"); // 익스프레스 모듈 불러오기
 const path = require("path"); // router에서 사용하고 있음
 const pool = require("./js/inquirydb");
+const fs = require("fs");
 
 const app = express();
 
@@ -26,24 +27,24 @@ app.post("/", (req, res, next) => {
     values: [userName, userPhoneNum, userMail, userInquiry],
   };
 
-  pool.query(query, (err, res) => {
-    console.log(err ? "Error!" : "Success!", res.rows[0]); // rows[0] 일때 undefined
+  pool.query(query, (err, result) => {
+    console.log(err ? "Error!" : "Success!"); // rows[0] 일때 undefined
   });
-  console.log("body", req.body);
+  res.redirect("/contact");
 });
 
-// pool.query("SELECT * FROM user_info",(err,res) => {
-// console.log(err?"Error" : "Success",res.rows[1]);
-// })
-
 // Inquiry screen
-app.get("/inquiry", (req, res) => {
-  pool.query("SELECT * FROM user_info", (err, res) => {
+app.get("/contact", (req, res) => {
+  const text = `
+  SELECT * FROM user_info 
+  ORDER BY data_time DESC;
+  `;
+  pool.query(text, (err, result) => {
     if (err) console.log("Error");
 
     let divList = []; // [``, ``, ``, ...] 文字列が入っている配列 -> string
-    for (i = 0; i < res.rowCount; i++) {
-      const item = res.rows[i];
+    for (i = 0; i < result.rowCount; i++) {
+      const item = result.rows[i];
       const div = `
       <div class="inquiryBox">
         <div class="userName">${item.user_name}</div>
@@ -56,42 +57,14 @@ app.get("/inquiry", (req, res) => {
     }
     divList = divList.join(" "); // 文字列
 
-    console.log(divList);
-
-    // cosnt updatedHtml = inquiry.htmlを開いて、divlistを中に入れる。
-
     // res.send(updatedHtml)
-
-    let text = `<!DOCTYPE html>
-    <html lang="en">
-      <head>
-        <meta charset="UTF-8" />
-        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Contact Us</title>
-        <script src="../js/screenInquiry.js"></script>
-        <link rel="stylesheet" href="../css/inquiryStyle.css" />
-      </head>
-      <body>
-        <div class="inquiryScreen">
-          <nav class="navi">
-            <div class="naviDiv backScreen">
-              <a href="/html/contact.html" class="clickContact">前に戻る</a>
-            </div>
-            <div class="naviDiv title">お問い合わせ</div>
-            <div class="naviDiv blank"></div>
-          </nav>
-          <div class="inquiryBoxs">...</div>
-        </div>
-      </body>
-    </html>
-    <div>
-    `;
-
-    // let text += divList;
+    fs.readFile("./html/inquiry.html", "utf8", (error, data) => {
+      if (error) console.log("Error");
+      const updateText = data.slice(0, 693) + divList + data.slice(693);
+      console.log(updateText);
+      res.send(updateText);
+    });
   });
-
-  res.sendFile(path.join(__dirname, "html", "inquiry.html"));
 });
 
 module.exports = app;
