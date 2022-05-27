@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact Us</title>
+    <link rel="stylesheet" href="./index.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="contactScreen">
+      <div class="titleBox box">
+        <h class="title">お問い合わせフォム</h>
+      </div>
+      <div class="contentsBox box">
+        <form action="/" method="post" class="contentForm" id="submitBtn">
+          <div class="content">
+            <input
+              type="text"
+              class="name inputText"
+              name="name"
+              pattern="[\x{3041}-\x{3096}\x{30A0}-\x{30FF}\x{3400}-\x{4DB5}\x{4E00}-\x{9FCB}\x{F900}-\x{FA6A}\x{2E80}-\x{2FD5}\x{FF5F}-\x{FF9F}\x{3000}-\x{303F}\x{31F0}-\x{31FF}\x{3220}-\x{3243}\x{3280}-\x{337F}\w]+[ ]?[\x{3041}-\x{3096}\x{30A0}-\x{30FF}\x{3400}-\x{4DB5}\x{4E00}-\x{9FCB}\x{F900}-\x{FA6A}\x{2E80}-\x{2FD5}\x{FF5F}-\x{FF9F}\x{3000}-\x{303F}\x{31F0}-\x{31FF}\x{3220}-\x{3243}\x{3280}-\x{337F}\w]"
+              placeholder="お名前"
+              maxlength="255"
+              required
+            />
+          </div>
+          <div class="content">
+            <input
+              type="tel"
+              pattern="\d{3}-?\d{4}-?\d{4}"
+              class="phoneNum inputText"
+              name="phoneNum"
+              placeholder="電話番号"
+            />
+          </div>
+          <div class="content">
+            <input
+              type="email"
+              class="mail inputText"
+              name="email"
+              placeholder="メールアドレス"
+              required
+            />
+          </div>
+          <div class="content">
+            <textarea
+              class="inquiry inputText"
+              name="inquiry"
+              cols="40"
+              rows="40"
+              placeholder="お問い合わせ内容"
+              maxlength="500"
+              required
+            ></textarea>
+          </div>
+          <div class="content">
+            <input
+              type="submit"
+              value="送信"
+              class="transmissionBtn inputText"
+            />
+          </div>
+        </form>
+        <div class="content clickInquirys">
+          <a href="http://localhost:8000/contacts" class="peruseInquirys"
+            >お問い合わせ一覧へ⇨</a
+          >
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
