@@ -1,20 +1,22 @@
 /* Modules */
-// const { log } = require("console");
-const express = require("express"); // 익스프레스 모듈 불러오기
-const path = require("path"); // router에서 사용하고 있음
-const pool = require("./js/inquirydb");
+const express = require("express");
+const path = require("path");
+const pool = require("./postgredb");
 const fs = require("fs");
+// const engine = require("templating-engine");
 
 const app = express();
 
-/* Use (미들웨어를 등록하는 메서드) */
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use(express.static(__dirname)); // serve CSS, JS, image files
+app.use(express.static(path.join(__dirname, "public")));
+// app.use(engine);
 
-// Contact screen
+const PORT = 8000;
+
+// お問い合わせフォーム
 app.get("/", (req, res, next) => {
-  res.sendFile(path.join(__dirname, "html", "contact.html"));
+  res.sendFile(path.join(__dirname, "public", "index.html"));
 });
 
 app.post("/", (req, res, next) => {
@@ -28,13 +30,13 @@ app.post("/", (req, res, next) => {
   };
 
   pool.query(query, (err, result) => {
-    console.log(err ? "Error!" : "Success!"); // rows[0] 일때 undefined
+    console.log(err ? "Error!" : "Success!");
+    res.redirect("/contacts");
   });
-  res.redirect("/contact");
 });
 
-// Inquiry screen
-app.get("/contact", (req, res) => {
+// お問い合わせ一覧
+app.get("/contacts", (req, res) => {
   const text = `
   SELECT * FROM user_info 
   ORDER BY data_time DESC;
@@ -57,14 +59,16 @@ app.get("/contact", (req, res) => {
     }
     divList = divList.join(" "); // 文字列
 
-    // res.send(updatedHtml)
-    fs.readFile("./html/inquiry.html", "utf8", (error, data) => {
+    fs.readFile("./public/contact.html", "utf8", (error, data) => {
       if (error) console.log("Error");
-      const updateText = data.slice(0, 693) + divList + data.slice(693);
-      console.log(updateText);
+      const updateText = data.slice(0, 631) + divList + data.slice(631);
       res.send(updateText);
     });
   });
 });
 
 module.exports = app;
+
+app.listen(PORT, () =>
+  console.log(`Example app listening at http://localhost:${PORT}`)
+);
